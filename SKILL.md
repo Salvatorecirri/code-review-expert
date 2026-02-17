@@ -23,7 +23,12 @@ Perform a structured review of the current git changes with focus on SOLID, arch
 ### 1) Preflight context
 
 - Use `git status -sb`, `git diff --stat`, and `git diff` to scope changes.
-- If needed, use `rg` or `grep` to find related modules, usages, and contracts.
+- **Impact Analysis (Low-Token Strategy)**:
+  - If an exported function, method, or type signature has changed:
+    1. Run `rg "nameOfIdentifier" --stats` to see how many times it's used.
+    2. If the count is low (<10), run `rg -C 2 "nameOfIdentifier"` to view the call sites directly in the terminal output.
+    3. If the count is high, only check the most critical files based on the project structure (e.g., those in `routes/`, `controllers/`, or `main`).
+  - **Do not read the whole file** unless the logic at the call site is too complex to understand from the 2-line context.
 - Identify entry points, ownership boundaries, and critical paths (auth, payments, data writes, network).
 
 **Edge cases:**
