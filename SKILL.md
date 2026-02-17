@@ -22,7 +22,9 @@ Perform a structured review of the current git changes with focus on SOLID, arch
 
 ### 1) Preflight context
 
+- Load `references/project-brain.md` to identify project-specific constraints that override or refine generic best practices.
 - Use `git status -sb`, `git diff --stat`, and `git diff` to scope changes.
+- **Language Detection**: Identify the primary languages in the diff. Explicitly recall and apply common "footguns" and idioms for those languages (e.g., Python's mutable defaults, JS event loop blocking, Go's goroutine leaks).
 - **Impact Analysis (Low-Token Strategy)**:
   - If an exported function, method, or type signature has changed:
     1. Run `rg "nameOfIdentifier" --stats` to see how many times it's used.
