@@ -5,6 +5,7 @@ A collection of production-grade agent skills for Claude Code and other AI agent
 <p align="center">
   <img src="https://img.shields.io/badge/Skills-3-blue" alt="3 Skills" />
   <img src="https://img.shields.io/badge/License-MIT-yellow" alt="MIT License" />
+  <img src="https://github.com/sanyuan0704/sanyuan-skills/actions/workflows/ci.yml/badge.svg" alt="CI" />
 </p>
 
 ## Skills
@@ -30,6 +31,8 @@ Then invoke in your agent terminal:
 /sigma <topic>         # Start a tutoring session
 /skill-forge           # Create a new skill
 ```
+
+CI automatically discovers every subfolder under `skills/` and runs the validator/bytecode checks, so new skills are covered without editing the workflow.
 
 ## Development Setup (Python helpers)
 
