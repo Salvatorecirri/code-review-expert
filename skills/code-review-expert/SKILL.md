@@ -82,6 +82,12 @@ Perform a structured review of the current git changes with focus on SOLID, arch
   - **Performance**: N+1 queries, CPU-intensive ops in hot paths, missing cache, unbounded memory
   - **Boundary conditions**: null/undefined handling, empty collections, numeric boundaries, off-by-one
 - Flag issues that may cause silent failures or production incidents.
+- **Language-Specific Heuristics**: beyond the checklist, scan for common anti-patterns in the detected languages:
+  - JavaScript/TypeScript: unawaited or floating promises (especially in loops), misuse of `this` binding, swallowed async errors.
+  - Python: mutable default arguments, brittle `__del__` side effects, `try/except: pass` without narrowing the exception type.
+  - Go: goroutine leaks (missing `WaitGroup`/context), not checking `err` immediately, unbuffered channel deadlocks, unchecked `Close`/`defer` ordering.
+  - C++/Rust: iterator invalidation or use-after-free patterns, unchecked `unsafe`/raw pointers, unnecessary cloning/copying in hot paths.
+  - Other languages: consider the common anti-patterns for that specific language.
 
 ### 6) Output format
 
