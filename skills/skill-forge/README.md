@@ -31,6 +31,15 @@ Skill Forge fixes this by teaching you **12 battle-tested techniques** for skill
 npx skills add sanyuan0704/sanyuan-skills --path skills/skill-forge
 ```
 
+Python helper setup (needed for validation/packaging scripts):
+
+```bash
+python -m venv venv
+./venv/Scripts/pip install -r requirements.txt   # Windows
+# or
+source venv/bin/activate && pip install -r requirements.txt  # macOS/Linux
+```
+
 ## Usage
 
 ```

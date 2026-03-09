@@ -31,6 +31,17 @@ Then invoke in your agent terminal:
 /skill-forge           # Create a new skill
 ```
 
+## Development Setup (Python helpers)
+
+Some helper scripts (packaging/validation) depend on PyYAML. Set up once per clone:
+
+```bash
+python -m venv venv
+./venv/Scripts/pip install -r requirements.txt   # Windows
+# or
+source venv/bin/activate && pip install -r requirements.txt  # macOS/Linux
+```
+
 ## License
 
 MIT
