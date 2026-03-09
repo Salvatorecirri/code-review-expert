@@ -45,6 +45,18 @@ python -m venv venv
 source venv/bin/activate && pip install -r requirements.txt  # macOS/Linux
 ```
 
+## Customizing project-brain.md (Code Review Expert)
+
+`skills/code-review-expert/references/project-brain.md` ships with sensible defaults (Hexagonal TS/Node stack, Zod/Prisma/Fastify, AppError shape, event naming). Before using on your project:
+
+1) Fill in your actual stack versions and primary libraries.  
+2) Update forbidden libraries/anti-patterns to match your org.  
+3) Set migration/backward-compat rules and soft-delete policy.  
+4) Define your error base class and code conventions.  
+5) Confirm event naming + schema versioning rules.  
+6) Note coverage targets and test strategy.  
+7) Save it to keep reviewers aligned across runs.
+
 ## License
 
 MIT
