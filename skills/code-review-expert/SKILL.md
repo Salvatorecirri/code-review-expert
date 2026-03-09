@@ -32,6 +32,11 @@ Perform a structured review of the current git changes with focus on SOLID, arch
     3. If the count is high, only check the most critical files based on the project structure (e.g., those in `routes/`, `controllers/`, or `main`).
   - **Do not read the whole file** unless the logic at the call site is too complex to understand from the 2-line context.
 - Identify entry points, ownership boundaries, and critical paths (auth, payments, data writes, network).
+- **Dependency Discovery (Ripple Effect)**:
+  - Enumerate any changed public contracts: exported functions, return types, DTOs, events, env var names, feature flags, and database schema/migrations.
+  - For each contract, map downstream consumers with `rg -n "ContractName"` (or related key strings) across the repo; skim unchanged files to confirm expectations still hold.
+  - Check caller assumptions: error shapes, nullability, timing/async behavior, and side effects (e.g., logging, metrics, transactions).
+  - Note high-risk boundaries (auth, payments, persistence, external APIs) where contract drift is most likely to break runtime behavior.
 
 **Edge cases:**
 - **No changes**: If `git diff` is empty, inform user and ask if they want to review staged changes or a specific commit range.
